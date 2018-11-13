@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air" #, "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" #, "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "This is what i did"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "GiYoung Shin"
+description              : ""
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,8 +102,8 @@ analytics:
 # Site Author
 author:
   name             : "GiYoung Shin"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : ""
+  avatar           : "https://avatars0.githubusercontent.com/u/2400329?s=460&v=4" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "XR, AI, Web Developer"
   location         : "Korea"
   email            : "sudogo00@gmail.com"
   links:
