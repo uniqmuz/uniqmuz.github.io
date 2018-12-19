@@ -47,5 +47,5 @@ Rx와 IObservable<T>는 **IEnumerable<T>을 대체할 수 없습니다.**
 
 [APM_link]: https://docs.microsoft.com/ko-kr/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm
 
-[TPL_link]: 
-https://docs.microsoft.com/ko-kr/dotnet/standard/parallel-programming/task-parallel-library-tpl
+[TPL_link]: https://docs.microsoft.com/ko-kr/dotnet/standard/parallel-programming/task-parallel-library-tpl
+
