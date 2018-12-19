@@ -6,7 +6,7 @@
         {
             "label": "dev",
             "type": "shell",
-            "command": "bash -c 'bundle exec jekyll serve --watch --incremental --livereload'", //--no-watch --force_polling
+            "command": "bash -c 'bundle exec jekyll serve --watch --livereload'", //--no-watch --force_polling
             "group": {
                 "kind": "build",
                 "isDefault": true
