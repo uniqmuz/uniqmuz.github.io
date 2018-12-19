@@ -31,12 +31,12 @@ Rx는 **비동기 호출**에도 사용될 수 있습니다. 이것들은 실제
 - Task 나 Task&lt;T&gt;의 결과
 - FileStream의 BeginRead/EndRead와 같은 [APM][APM_link] (Asynchronous Programming Model) 메서드 호출의 결과
 
-[TPL][TPL_link] (Task Parallel Library)나 Dataflow 또는 async 키워드(.NET 4.5)를 사용하는 것이 비동기 메서드를 구성하는 더 자연스러운 방법임을 알 수 있습니다. Rx가 이러한 시나리오를 확실히 도울 수 있지만, 만약 더 적합한 다른 프레임워크가 있다면 먼저 고려해 보아야합니다.
+[TPL][TPL_link] (Task Parallel Library)이나 Dataflow 또는 async 키워드(.NET 4.5)를 사용하는 것이 비동기 메서드를 구성하는 더 자연스러운 방법임을 알 수 있습니다. Rx가 이러한 시나리오를 확실히 도울 수 있지만, 만약 더 적합한 다른 프레임워크가 있다면 먼저 고려해 보아야합니다.
 
 병렬 계산을 수행하거나 스케일링을 할 목적으로 동시성을 도입하고 관리하려는 경우, Rx가 사용될 수 있지만 적합하지는 않습니다. TPL이나 C++ AMP가 이러한 집중적인 병렬 계산에 더 적합합니다.
 
 ## Rx를 사용할 수 없음
-Rx와 IObservable&lt;T&gt;는 **IEnumerable&lt;T&gt;을 대체할 수 없습니다.**
+Rx에서 특히 IObservable&lt;T&gt;는 **IEnumerable&lt;T&gt;을 대체할 수 없습니다.**
 - 단지 코드 베이스가 "더 많은 Rx"가 되도록 이미 존재하는 IEnumerable&lt;T&gt; 값을 IOberservable&lt;T&gt;로 변환하는 것
 - 메세지 큐, MSMQ 나 JMS같은 큐는 기본적으로 트랜잭션성을 가지며 정의상으로도 순차적입니다. 여기에는 이미 IEnumerable&lt;T&gt;이 녹아들어있습니다.
 
