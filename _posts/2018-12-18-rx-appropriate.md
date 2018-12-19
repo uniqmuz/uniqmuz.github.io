@@ -7,12 +7,7 @@ tags:
     - reactive
 toc: true
 ---
-
-*Reference : [Introduction to Rx - Why Rx](http://introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx)
-
-*오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)에 이슈로 등록 부탁드립니다.
-
-# 언제 Rx를 쓸 것인가?
+## 언제 Rx를 쓸 것인가?
 Rx는 **이벤트 시퀀스**를 처리하기 위한 **자연스러운 패러다임**을 제공합니다. 시퀀스 하나에는 0개 이상의 이벤트가 포함됩니다. Rx는 이 시퀀스들을 조합할 때 가장 빛을 발합니다.
 
 ## Rx를 꼭 써야 하는 경우
@@ -44,6 +39,13 @@ Rx는 **비동기 호출**에도 사용될 수 있습니다. 이것들은 실제
 Rx와 IObservable&lt;T&gt;는 **IEnumerable&lt;T&gt;을 대체할 수 없습니다.**
 - 단지 코드 베이스가 "더 많은 Rx"가 되도록 이미 존재하는 IEnumerable&lt;T&gt; 값을 IOberservable&lt;T&gt;로 변환하는 것
 - 메세지 큐, MSMQ 나 JMS같은 큐는 기본적으로 트랜잭션성을 가지며 정의상으로도 순차적입니다. 여기에는 이미 IEnumerable&lt;T&gt;이 녹아들어있습니다.
+
+## Reference
+- [Introduction to Rx - Why Rx](http://introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx)
+
+*오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)나 댓글로 알려주세요 :)
+
+
 
 [APM_link]: https://docs.microsoft.com/ko-kr/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm
 
