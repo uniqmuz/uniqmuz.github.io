@@ -5,6 +5,8 @@ categories:
 tags:
     - rx
     - reactive
+    - translated
+    - testing
 toc: true
 ---
 ## 언제 Rx를 쓸 것인가?
