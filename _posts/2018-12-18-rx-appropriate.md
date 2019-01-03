@@ -45,7 +45,7 @@ Rx에서 특히 IObservable&lt;T&gt;는 **IEnumerable&lt;T&gt;을 대체할 수 
 ## Reference
 - [Introduction to Rx - Why Rx](http://introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx)
 
-*오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)나 댓글로 알려주세요 :)
+*공부를 위해 번역한 포스트입니다. 오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)나 댓글로 알려주세요 :)
 
 
 

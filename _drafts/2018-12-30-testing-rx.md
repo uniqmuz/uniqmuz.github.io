@@ -1,5 +1,5 @@
 ---
-title: "Testing Rx?"
+title: "Testing Rx"
 categories:
     - Rx
 tags:
@@ -21,11 +21,11 @@ Rx에 대한 몇가지 흥미로운 문제가 우리의 Test-Driven 커뮤니티
 코드를 테스트 하고자 할 때, 느리거나 비-결정적 테스트를 도입하기를 원하지 않습니다. 사실, 이후에 false-negatives 나 false-positives를 도입할 예정입니다. Rx 라이브러리를 살펴보면, (암시적 또는 명시적으로) 스케쥴링을 포함하는 많은 메소드가 있습니다. 그래서 Rx를 효율적으로 쓰게되면 스케쥴링을 피할 수 없게됩니다. 이 LINQ 쿼리는 IScheduler를 파라미터로 허용하는 확장 메소드가 26개 이상 있음을 보여줍니다.
 ```csharp
 var query = from method in typeof(Observable).GetMethods()
-  from parameter in method.GetParameters()
-  where typeof (IScheduler).IsAssignableFrom(parameter.ParameterType)
-  group method by method.Name into m
-  orderby m.Key
-  select m.Key;
+            from parameter in method.GetParameters()
+            where typeof (IScheduler).IsAssignableFrom(parameter.ParameterType)
+            group method by method.Name into m
+            orderby m.Key
+            select m.Key;
 foreach (var methodName in query)
 {
   Console.WriteLine(methodName);
@@ -65,11 +65,30 @@ Window
 이 예제에서는 5초 동안 매 초마다 값을 게시하는 시퀀스를 만듭니다.
 ```csharp
 var interval = Observable
-.Interval(TimeSpan.FromSeconds(1))
-.Take(5);
+                  .Interval(TimeSpan.FromSeconds(1))
+                  .Take(5);
 ```
-5개의 값을 받은 것과 1초 간격으로 실행하는데 총 5초가 걸리는 것을 보증하는 테스트 코드를 작성한다면, 잘 되지 않을 것이다;
-## Reference
-- [Introduction to Rx - Why Rx](http://introtorx.com/Content/v1.0.10621.0/01_WhyRx.html#WhyRx)
+총 5개의 값을 받았고 각 값을 받는데 1초가 걸리는 테스트를 작성하였을때, 실행되는데 걸리는 시간은 총 5초입니다. 이것은 좋지않습니다; 몇천개 까지는 아니더라도, 몇백개의 테스트가 5초안에 돌았으면 합니다. 아주 일반적인 다른 요구사항으로 timeout을 테스트 하는 것이 있습니다. 여기 1분의 timeout을 테스트 하는 코드가 있습니다.
+```csharp
+var never = Observable.Never<int>();
+var exceptionThrown = false;
+never.Timeout(TimeSpan.FromMinutes(1))
+     .Subscribe(
+        i => Console.WriteLine("This will never run."),
+        ex => exceptionThrown = true);
+Assert.IsTrue(exceptionThrown);
+```
+여기에는 두가지 문제가 있습니다:
+1. Assert가 너무 빨리 실행되어, 테스트가 항상 실패하여 무의미 하거나,
+2. 정확한 테스트를 위해 실제로 1분의 딜레이를 추가 하였습니다.
 
-*오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)나 댓글로 알려주세요 :)
+이 테스트가 유용하게 쓰이기 위해서는, 결과적으로 실행되는데 1분이 걸립니다. 실행하는데 1분이 걸리는 유닛테스트는 받아들일 수 없습니다.
+
+
+
+
+## Reference
+- [Introduction to Rx - Testing Rx](http://introtorx.com/Content/v1.0.10621.0/16_TestingRx.html#TestingRx)
+
+*공부를 위해 번역한 포스트입니다. 오역은 [깃허브](http://github.com/uniqmuz/uniqmuz.github.io)나 댓글로 알려주세요 :)
+
